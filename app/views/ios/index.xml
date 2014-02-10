@@ -6,6 +6,11 @@
       <TableView dataCollection="books">
         <TableViewRow title="{title}" author="{author}" onClick="showBook"></TableViewRow>
       </TableView>
+      <Toolbar bottom="0">
+        <Items>
+          <Button id="add" title="Add Book" onClick="addBook"></Button>
+        </Items>
+      </Toolbar>
     </Window>
   </NavigationWindow>
 </Alloy>

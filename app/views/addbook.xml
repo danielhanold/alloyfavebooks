@@ -1,0 +1,9 @@
+<Alloy>
+  <Window class='container'>
+    <View id='containerView'>
+      <TextField class='inputField' id="titleInput"></TextField>
+      <TextField class='inputField' id="authorInput"></TextField>
+      <Button id="insertBookButton" onClick="addBook">Add</Button>
+    </View>
+  </Window>
+</Alloy>
