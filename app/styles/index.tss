@@ -1,5 +1,6 @@
 ".container": {
-	backgroundColor:"white"
+	backgroundColor:"white",
+  title: 'Books'
 },
 "Label": {
 	width: Ti.UI.SIZE,
