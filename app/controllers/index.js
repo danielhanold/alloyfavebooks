@@ -1,5 +1,5 @@
 // Access "books" collection locally.
-var myBooks = Alloy.createCollection('books');
+var myBooks = Alloy.Collections.books;
 
 // Create a "book" model.
 var book = Alloy.createModel('books', {
