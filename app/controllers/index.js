@@ -8,7 +8,16 @@ function showBook(e) {
   // Get the book view from the book controller.
   var bookController = Alloy.createController('bookdetails', args);
   var bookView = bookController.getView();
-  bookView.open();
+
+  // On iOS, open the book view in the navigation window.
+  if (OS_IOS) {
+    $.navGroupWin.openWindow(bookView);
+  }
+
+  // On Android, simply open the window.
+  if (OS_ANDROID) {
+    bookView.open();
+  }
 
   Ti.API.error(JSON.stringify(e.source));
 };
@@ -32,5 +41,13 @@ book.save();
 // Display the contens of the collection.
 Ti.API.info(myBooks.toJSON());
 
+// Create platform-specific window handling.
+// Android uses a simple window as the top-level view in index.xml,
+// iOS uses a Navigation window.
+if (OS_IOS) {
+  $.navGroupWin.open();
+}
 
-$.index.open();
+if (OS_ANDROID) {
+  $.index.open();
+}
