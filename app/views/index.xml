@@ -3,7 +3,7 @@
 	<Window class="container">
     <!-- Add TableView and TableViewRow -->
     <TableView dataCollection="books">
-      <TableViewRow title="{title}"></TableViewRow>
+      <TableViewRow title="{title}" author="{author}" onClick="showBook"></TableViewRow>
     </TableView>
 	</Window>
 </Alloy>

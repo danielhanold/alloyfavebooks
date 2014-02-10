@@ -9,11 +9,24 @@ function Controller() {
             var __alloyId3 = models[i];
             __alloyId3.__transform = {};
             var __alloyId5 = Ti.UI.createTableViewRow({
-                title: "undefined" != typeof __alloyId3.__transform["title"] ? __alloyId3.__transform["title"] : __alloyId3.get("title")
+                title: "undefined" != typeof __alloyId3.__transform["title"] ? __alloyId3.__transform["title"] : __alloyId3.get("title"),
+                author: "undefined" != typeof __alloyId3.__transform["author"] ? __alloyId3.__transform["author"] : __alloyId3.get("author")
             });
             rows.push(__alloyId5);
+            showBook ? __alloyId5.addEventListener("click", showBook) : __defers["__alloyId5!click!showBook"] = true;
         }
         $.__views.__alloyId2.setData(rows);
+    }
+    function showBook(e) {
+        var selectedBook = e.source;
+        var args = {
+            title: selectedBook.title,
+            author: selectedBook.author
+        };
+        var bookController = Alloy.createController("bookdetails", args);
+        var bookView = bookController.getView();
+        bookView.open();
+        Ti.API.error(JSON.stringify(e.source));
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "index";
@@ -22,6 +35,7 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
+    var __defers = {};
     Alloy.Collections.instance("books");
     $.__views.index = Ti.UI.createWindow({
         backgroundColor: "white",
@@ -47,6 +61,7 @@ function Controller() {
     book.save();
     Ti.API.info(myBooks.toJSON());
     $.index.open();
+    __defers["__alloyId5!click!showBook"] && __alloyId5.addEventListener("click", showBook);
     _.extend($, exports);
 }
 

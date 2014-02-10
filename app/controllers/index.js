@@ -1,3 +1,19 @@
+function showBook(e) {
+  var selectedBook = e.source;
+  var args = {
+    title: selectedBook.title,
+    author: selectedBook.author
+  };
+
+  // Get the book view from the book controller.
+  var bookController = Alloy.createController('bookdetails', args);
+  var bookView = bookController.getView();
+  bookView.open();
+
+  Ti.API.error(JSON.stringify(e.source));
+};
+
+
 // Access "books" collection locally.
 var myBooks = Alloy.Collections.books;
 
