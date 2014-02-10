@@ -1,3 +1,6 @@
+// Access "books" collection locally.
+var myBooks = Alloy.Collections.books;
+
 function addBook(e) {
   var addBookController = Alloy.createController('addbook');
   var addBookView = addBookController.getView();
@@ -38,9 +41,6 @@ function showBook(e) {
   Ti.API.error(JSON.stringify(e.source));
 };
 
-
-// Access "books" collection locally.
-var myBooks = Alloy.Collections.books;
 
 // Create a "book" model.
 var book = Alloy.createModel('books', {
