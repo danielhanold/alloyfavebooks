@@ -1,3 +1,19 @@
 ".container" : {
-   backgroundColor: 'white'
+  backgroundColor: 'white'
+},
+'#containerView': {
+  layout: 'vertical'
+}
+"#titleLabel": {
+  font: {
+    fontSize: 30
+  },
+  left: 10
+},
+"#authorLabel": {
+  font: {
+    fontSize: 20
+  },
+  left: 10,
+  top: 5
 }
