@@ -1,5 +1,10 @@
 // Access "books" collection locally.
 var myBooks = Alloy.Collections.books;
+myBooks.fetch();
+
+// Display the contens of the collection.
+Ti.API.info(myBooks.toJSON());
+
 
 function addBook(e) {
   var addBookController = Alloy.createController('addbook');
@@ -42,20 +47,6 @@ function showBook(e) {
 };
 
 
-// Create a "book" model.
-var book = Alloy.createModel('books', {
-  title : 'Great Expectations',
-  author: 'Charles Dickens'
-});
-
-// Add book model to the collection.
-myBooks.add(book);
-
-// Persiste the book in the database.
-book.save();
-
-// Display the contens of the collection.
-Ti.API.info(myBooks.toJSON());
 
 // Create platform-specific window handling.
 // Android uses a simple window as the top-level view in index.xml,
